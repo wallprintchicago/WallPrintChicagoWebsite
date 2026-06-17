@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
   <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript"></script>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -185,6 +186,9 @@
     .form-submit:hover { background: var(--ink2); }
     .form-submit:disabled { background: var(--muted); cursor: not-allowed; }
     .form-note { font-size: 11px; color: var(--muted); text-align: center; margin-top: 0.75rem; }
+    .g-recaptcha { margin: 0.5rem 0; transform-origin: left top; }
+    .captcha-error { font-size: 12px; color: #C0392B; display: none; margin-top: 6px; font-weight: 500; }
+    .captcha-error.show { display: block; }
     .success-msg { text-align: center; padding: 3rem 1rem; }
     .success-icon { font-size: 36px; margin-bottom: 1rem; }
     .success-msg h3 { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 500; color: var(--ink); margin-bottom: 0.5rem; }
@@ -523,6 +527,10 @@
           <label>Tell us about your project</label>
           <textarea name="notes" placeholder="Any details, ideas, or inspiration..."></textarea>
         </div>
+        <div class="form-field">
+          <div class="g-recaptcha" data-sitekey="6LdPsSMtAAAAAJx_7jiXxQx8pBota7FN0WlLM7pQ" data-theme="light"></div>
+          <span class="captcha-error" id="captcha-error">Please complete the reCAPTCHA verification.</span>
+        </div>
         <button type="submit" class="form-submit" id="submitBtn">Send quote request</button>
         <p class="form-note">We respond within 24 hours. No spam, ever.</p>
       </form>
@@ -569,6 +577,7 @@
     setTimeout(() => {
       const o = document.getElementById('orig-quote');
       if (o) document.getElementById('form-content-quote').innerHTML = o.innerHTML;
+      if (typeof grecaptcha !== 'undefined') grecaptcha.reset();
     }, 300);
   }
 
@@ -588,6 +597,15 @@
 
   async function handleSubmit(e) {
     e.preventDefault();
+
+    // Validate reCAPTCHA
+    const recaptchaResponse = grecaptcha.getResponse();
+    const errEl = document.getElementById('captcha-error');
+    if (!recaptchaResponse) {
+      errEl.classList.add('show');
+      return;
+    }
+    errEl.classList.remove('show');
     const btn = document.getElementById('submitBtn');
     btn.disabled = true; btn.textContent = 'Sending...';
     const fd = new FormData(e.target);
