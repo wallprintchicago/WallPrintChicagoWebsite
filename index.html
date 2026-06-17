@@ -6,488 +6,418 @@
   <title>Wall Print Chicago — Custom Wall Murals & Prints</title>
   <link rel="icon" type="image/png" href="logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
   <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript"></script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --cream:      #FAF7F2;
-      --cream2:     #F3EEE6;
-      --cream3:     #EDE5D8;
-      --charcoal:   #1C1C1C;
-      --charcoal2:  #2E2E2E;
-      --muted:      #8A8078;
-      --border:     rgba(28,28,28,0.1);
-      --border2:    rgba(28,28,28,0.06);
-      --gold:       #B8933A;
-      --gold-light: #D4AA55;
-      --white:      #FFFFFF;
+      --cream:     #F8F4EF;
+      --cream2:    #F0EAE0;
+      --cream3:    #E8DDD0;
+      --ink:       #141414;
+      --ink2:      #2A2A2A;
+      --muted:     #7A7368;
+      --gold:      #C09A45;
+      --gold2:     #A07830;
+      --white:     #FFFFFF;
+      --border:    rgba(20,20,20,0.08);
     }
     html { scroll-behavior: smooth; }
-    body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--charcoal); line-height: 1.6; overflow-x: hidden; }
-
-    /* ── SCROLLBAR ── */
+    body { font-family: 'Outfit', sans-serif; background: var(--cream); color: var(--ink); line-height: 1.6; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
     ::-webkit-scrollbar { width: 3px; }
-    ::-webkit-scrollbar-track { background: var(--cream); }
-    ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 99px; }
+    ::-webkit-scrollbar-thumb { background: var(--gold); }
+
+    /* ── BUTTONS ── */
+    .btn-dark { background: var(--ink); color: var(--cream); border: none; padding: 14px 30px; font-family: 'Outfit', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer; transition: all 0.25s; border-radius: 2px; display: inline-flex; align-items: center; gap: 8px; }
+    .btn-dark:hover { background: var(--ink2); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(20,20,20,0.15); }
+    .btn-light { background: transparent; color: var(--ink); border: 1.5px solid var(--ink); padding: 13px 30px; font-family: 'Outfit', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer; transition: all 0.25s; border-radius: 2px; display: inline-flex; align-items: center; gap: 8px; }
+    .btn-light:hover { background: var(--ink); color: var(--cream); }
+    .btn-white { background: var(--white); color: var(--ink); border: none; padding: 14px 30px; font-family: 'Outfit', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer; transition: all 0.25s; border-radius: 2px; display: inline-flex; align-items: center; gap: 8px; }
+    .btn-white:hover { background: var(--cream); transform: translateY(-2px); }
+    .btn-white-outline { background: transparent; color: var(--white); border: 1.5px solid rgba(255,255,255,0.5); padding: 13px 30px; font-family: 'Outfit', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer; transition: all 0.25s; border-radius: 2px; display: inline-flex; align-items: center; gap: 8px; }
+    .btn-white-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.1); }
 
     /* ── NAV ── */
-    .nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 1.1rem 2.5rem;
-      background: rgba(250,247,242,0.92);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border);
-      transition: all 0.3s;
-    }
-    .nav-logo { height: 48px; width: auto; }
-    .nav-links { display: flex; align-items: center; gap: 2.5rem; }
-    .nav-links a { color: var(--muted); font-size: 13px; font-weight: 500; text-decoration: none; letter-spacing: 0.5px; text-transform: uppercase; cursor: pointer; transition: color 0.2s; }
-    .nav-links a:hover { color: var(--charcoal); }
-    .nav-ctas { display: flex; gap: 10px; }
-    .btn-outline { background: transparent; border: 1px solid rgba(28,28,28,0.25); color: var(--charcoal); padding: 9px 20px; border-radius: 4px; font-size: 13px; font-weight: 500; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all 0.2s; letter-spacing: 0.3px; }
-    .btn-outline:hover { border-color: var(--charcoal); background: var(--charcoal); color: var(--cream); }
-    .btn-solid { background: var(--charcoal); border: none; color: var(--cream); padding: 9px 20px; border-radius: 4px; font-size: 13px; font-weight: 600; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all 0.2s; letter-spacing: 0.3px; }
-    .btn-solid:hover { background: var(--charcoal2); transform: translateY(-1px); }
-    .btn-gold { background: var(--gold); border: none; color: var(--white); padding: 9px 20px; border-radius: 4px; font-size: 13px; font-weight: 600; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all 0.2s; letter-spacing: 0.3px; }
-    .btn-gold:hover { background: var(--gold-light); transform: translateY(-1px); }
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; display: flex; justify-content: space-between; align-items: center; padding: 0 2.5rem; height: 72px; background: rgba(248,244,239,0.95); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); transition: box-shadow 0.3s; }
+    .nav.scrolled { box-shadow: 0 2px 30px rgba(20,20,20,0.08); }
+    .nav-logo { height: 44px; }
+    .nav-center { display: flex; gap: 2.5rem; }
+    .nav-center a { font-size: 12px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); text-decoration: none; cursor: pointer; transition: color 0.2s; position: relative; padding-bottom: 2px; }
+    .nav-center a::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 1px; background: var(--gold); transition: width 0.3s; }
+    .nav-center a:hover { color: var(--ink); }
+    .nav-center a:hover::after { width: 100%; }
+    .nav-right { display: flex; gap: 10px; align-items: center; }
 
     /* ── HERO ── */
-    .hero {
-      min-height: 100vh;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      padding-top: 72px;
-      background: var(--cream);
-    }
-    .hero-left {
-      display: flex; flex-direction: column; justify-content: center;
-      padding: 5rem 3rem 5rem 2.5rem;
-      border-right: 1px solid var(--border);
-    }
-    .hero-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 10px; }
-    .hero-eyebrow::before { content: ''; display: inline-block; width: 32px; height: 1px; background: var(--gold); }
-    .hero-h1 { font-family: 'Syne', sans-serif; font-size: clamp(52px, 6vw, 84px); line-height: 1.0; letter-spacing: -1.5px; color: var(--charcoal); margin-bottom: 1.5rem; font-weight: 800; }
-    .hero-h1 em { font-style: normal; color: var(--gold); }
-    .hero-p { font-size: 17px; color: var(--muted); max-width: 440px; margin-bottom: 2.5rem; line-height: 1.75; font-weight: 300; }
-    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 3rem; }
-    .hero-actions .btn-solid { padding: 13px 28px; font-size: 14px; }
-    .hero-actions .btn-outline { padding: 13px 28px; font-size: 14px; }
-    .hero-meta { display: flex; gap: 2.5rem; padding-top: 2rem; border-top: 1px solid var(--border); }
-    .hero-meta-item { }
-    .hero-meta-num { font-family: 'Syne', sans-serif; font-size: 28px; font-weight: 700; color: var(--charcoal); letter-spacing: -1px; }
-    .hero-meta-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-top: 2px; }
-    .hero-right { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 3px; background: var(--cream3); }
-    .hero-right-img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s ease; }
-    .hero-right-cell { overflow: hidden; }
-    .hero-right-cell:hover .hero-right-img { transform: scale(1.04); }
-    .hero-right-cell:first-child { grid-row: span 2; }
+    .hero { height: 100vh; min-height: 700px; position: relative; overflow: hidden; display: flex; align-items: flex-end; padding-bottom: 80px; margin-top: 72px; height: calc(100vh - 72px); }
+    .hero-bg { position: absolute; inset: 0; }
+    .hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center center; display: block; }
+    .hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(20,20,20,0.82) 0%, rgba(20,20,20,0.35) 50%, rgba(20,20,20,0.1) 100%); }
+    .hero-content { position: relative; z-index: 2; padding: 0 2.5rem; max-width: 820px; }
+    .hero-tag { display: inline-flex; align-items: center; gap: 10px; font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; }
+    .hero-tag::before { content: ''; display: inline-block; width: 40px; height: 1px; background: var(--gold); }
+    .hero-h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(60px, 8vw, 110px); font-weight: 300; line-height: 0.95; color: var(--white); margin-bottom: 1.75rem; letter-spacing: -1px; }
+    .hero-h1 strong { font-weight: 600; display: block; }
+    .hero-h1 em { font-style: italic; color: rgba(255,255,255,0.75); }
+    .hero-p { font-size: 17px; color: rgba(255,255,255,0.7); max-width: 500px; margin-bottom: 2.5rem; line-height: 1.75; font-weight: 300; }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .hero-stats { position: absolute; right: 2.5rem; bottom: 80px; z-index: 2; display: flex; flex-direction: column; gap: 1px; }
+    .hero-stat { background: rgba(248,244,239,0.08); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); padding: 1rem 1.5rem; text-align: center; min-width: 120px; }
+    .hero-stat-num { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 500; color: var(--white); line-height: 1; }
+    .hero-stat-label { font-size: 10px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-top: 4px; }
 
-    /* ── SECTION BASICS ── */
-    .section { padding: 7rem 2.5rem; }
-    .section-inner { max-width: 1200px; margin: 0 auto; }
-    .section-label { font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 10px; }
-    .section-label::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--gold); }
-    .section-title { font-family: 'Syne', sans-serif; font-size: clamp(36px, 4vw, 56px); letter-spacing: -1px; color: var(--charcoal); line-height: 1.05; margin-bottom: 1rem; font-weight: 700; }
-    .section-sub { font-size: 16px; color: var(--muted); max-width: 520px; line-height: 1.75; font-weight: 300; }
+    /* ── TICKER ── */
+    .ticker { background: var(--ink); padding: 14px 0; overflow: hidden; white-space: nowrap; }
+    .ticker-inner { display: inline-flex; gap: 0; animation: ticker 20s linear infinite; }
+    .ticker-item { font-size: 12px; font-weight: 500; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(255,255,255,0.5); padding: 0 2rem; border-right: 1px solid rgba(255,255,255,0.1); }
+    .ticker-item span { color: var(--gold); margin-right: 8px; }
+    @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
     /* ── GALLERY ── */
-    .gallery-section { background: var(--cream2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-    .gallery-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem; flex-wrap: wrap; gap: 1.5rem; }
-    .gallery-filters { display: flex; gap: 6px; flex-wrap: wrap; }
-    .filter-btn { background: transparent; border: 1px solid var(--border); color: var(--muted); padding: 7px 16px; border-radius: 99px; font-size: 12px; font-weight: 500; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all 0.2s; letter-spacing: 0.3px; }
-    .filter-btn:hover { border-color: var(--charcoal); color: var(--charcoal); }
-    .filter-btn.active { background: var(--charcoal); border-color: var(--charcoal); color: var(--cream); }
-    .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
-    .gallery-item { position: relative; overflow: hidden; border-radius: 6px; cursor: pointer; background: var(--cream3); }
-    .gallery-item.wide { grid-column: span 2; }
-    .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s ease; aspect-ratio: 1/1; }
-    .gallery-item.wide img { aspect-ratio: 2/1; }
-    .gallery-item:hover img { transform: scale(1.05); }
-    .gallery-item-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(28,28,28,0.75) 0%, transparent 55%); opacity: 0; transition: opacity 0.3s; display: flex; flex-direction: column; justify-content: flex-end; padding: 1.25rem; }
-    .gallery-item:hover .gallery-item-overlay { opacity: 1; }
-    .gallery-item-cat { font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--gold-light); margin-bottom: 4px; }
-    .gallery-item-title { font-family: 'Syne', sans-serif; font-size: 16px; color: var(--white); font-weight: 600; }
+    .gallery-section { background: var(--cream2); padding: 80px 0 0; }
+    .gallery-header { padding: 0 2.5rem 50px; display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1.5rem; max-width: 1400px; margin: 0 auto; }
+    .gallery-header-left .eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 10px; }
+    .gallery-header-left .eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--gold); display: inline-block; }
+    .gallery-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(40px, 5vw, 64px); font-weight: 400; color: var(--ink); line-height: 1; letter-spacing: -0.5px; }
+    .gallery-filters { display: flex; gap: 4px; flex-wrap: wrap; }
+    .filter-btn { background: transparent; border: 1px solid var(--border); color: var(--muted); padding: 8px 18px; border-radius: 99px; font-size: 12px; font-weight: 500; letter-spacing: 0.5px; cursor: pointer; font-family: 'Outfit', sans-serif; transition: all 0.2s; }
+    .filter-btn:hover { border-color: var(--ink); color: var(--ink); }
+    .filter-btn.active { background: var(--ink); border-color: var(--ink); color: var(--cream); }
+
+    /* MASONRY GRID — no gaps */
+    .gallery-grid { columns: 4; column-gap: 0; line-height: 0; max-width: 1400px; margin: 0 auto; }
+    .gallery-item { break-inside: avoid; position: relative; overflow: hidden; cursor: pointer; display: block; margin: 0; }
+    .gallery-item img { width: 100%; height: auto; display: block; transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94); filter: brightness(0.95); }
+    .gallery-item:hover img { transform: scale(1.06); filter: brightness(1.05); }
+    .gallery-item-info { position: absolute; inset: 0; background: linear-gradient(to top, rgba(20,20,20,0.88) 0%, rgba(20,20,20,0) 55%); display: flex; flex-direction: column; justify-content: flex-end; padding: 1.5rem; opacity: 0; transition: opacity 0.35s; }
+    .gallery-item:hover .gallery-item-info { opacity: 1; }
+    .gallery-item-cat { font-size: 10px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 5px; }
+    .gallery-item-name { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 500; color: var(--white); line-height: 1.2; }
+    .gallery-cta { background: var(--cream); padding: 60px 2.5rem; text-align: center; max-width: 1400px; margin: 0 auto; }
+    .gallery-cta p { font-size: 15px; color: var(--muted); margin-bottom: 1.5rem; font-weight: 300; }
 
     /* ── PROCESS ── */
-    .process-section { background: var(--cream); }
-    .process-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; margin-top: 4rem; align-items: start; }
-    .process-steps { }
-    .process-step { display: grid; grid-template-columns: 48px 1fr; gap: 1.25rem; padding: 1.75rem 0; border-bottom: 1px solid var(--border2); transition: all 0.3s; }
-    .process-step:first-child { border-top: 1px solid var(--border2); }
-    .process-step:hover { padding-left: 8px; }
-    .process-step-num { font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 700; color: var(--gold); letter-spacing: 1px; padding-top: 3px; }
-    .process-step-title { font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 700; color: var(--charcoal); margin-bottom: 0.5rem; }
-    .process-step-text { font-size: 14px; color: var(--muted); line-height: 1.7; font-weight: 300; }
-    .process-aside { display: flex; flex-direction: column; gap: 12px; position: sticky; top: 100px; }
-    .process-card { background: var(--cream2); border: 1px solid var(--border); border-radius: 8px; padding: 1.75rem; }
-    .process-card-num { font-family: 'Syne', sans-serif; font-size: 48px; font-weight: 800; color: var(--charcoal); line-height: 1; letter-spacing: -2px; }
-    .process-card-unit { font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 600; color: var(--gold); }
-    .process-card-label { font-size: 13px; color: var(--muted); margin-top: 4px; }
-    .process-card.highlight { background: var(--charcoal); }
-    .process-card.highlight .process-card-num { color: var(--cream); }
-    .process-card.highlight .process-card-label { color: rgba(250,247,242,0.6); }
-    .process-quote { background: var(--cream3); border-left: 3px solid var(--gold); border-radius: 0 6px 6px 0; padding: 1.5rem; margin-top: 4px; }
-    .process-quote p { font-size: 14px; color: var(--charcoal2); line-height: 1.7; font-style: italic; }
-    .process-quote span { font-size: 12px; color: var(--gold); font-weight: 600; display: block; margin-top: 8px; font-style: normal; }
+    .process-section { background: var(--cream); padding: 100px 2.5rem; }
+    .process-inner { max-width: 1200px; margin: 0 auto; }
+    .process-top { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 70px; flex-wrap: wrap; gap: 2rem; }
+    .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
+    .process-step { background: var(--cream); padding: 2.5rem 2rem; transition: background 0.3s; position: relative; }
+    .process-step:hover { background: var(--cream2); }
+    .process-step-num { font-family: 'Cormorant Garamond', serif; font-size: 60px; font-weight: 300; color: var(--cream3); line-height: 1; margin-bottom: 1.25rem; transition: color 0.3s; }
+    .process-step:hover .process-step-num { color: var(--gold); }
+    .process-step-title { font-size: 16px; font-weight: 700; color: var(--ink); margin-bottom: 0.75rem; letter-spacing: 0.3px; }
+    .process-step-text { font-size: 14px; color: var(--muted); line-height: 1.75; font-weight: 300; }
+    .process-step-arrow { position: absolute; top: 2.5rem; right: 2rem; font-size: 20px; color: var(--cream3); transition: all 0.3s; }
+    .process-step:hover .process-step-arrow { color: var(--gold); transform: translate(4px, -4px); }
+    .process-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--ink); border-radius: 4px; overflow: hidden; margin-top: 1px; }
+    .process-stat { background: var(--ink); padding: 2rem; text-align: center; }
+    .process-stat-num { font-family: 'Cormorant Garamond', serif; font-size: 52px; font-weight: 500; color: var(--gold); line-height: 1; }
+    .process-stat-label { font-size: 11px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-top: 6px; }
 
     /* ── ABOUT ── */
-    .about-section { background: var(--cream2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-    .about-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 5rem; align-items: center; margin-top: 4rem; }
-    .about-text p { font-size: 17px; color: var(--charcoal2); line-height: 1.85; font-weight: 300; margin-bottom: 1.25rem; }
-    .about-text p strong { color: var(--charcoal); font-weight: 600; }
-    .about-cta { margin-top: 2rem; display: flex; gap: 12px; flex-wrap: wrap; }
-    .about-cta .btn-solid { padding: 13px 28px; font-size: 14px; }
-    .about-cta .btn-outline { padding: 13px 28px; font-size: 14px; }
-    .about-visual { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
-    .about-stat { background: var(--cream); padding: 2rem 1.5rem; transition: background 0.2s; }
-    .about-stat:hover { background: var(--cream3); }
-    .about-stat-num { font-family: 'Syne', sans-serif; font-size: 40px; font-weight: 800; color: var(--charcoal); line-height: 1; letter-spacing: -1px; }
-    .about-stat-label { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-top: 6px; line-height: 1.4; }
+    .about-section { background: var(--ink); padding: 100px 2.5rem; }
+    .about-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+    .about-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 1.25rem; display: flex; align-items: center; gap: 10px; }
+    .about-eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--gold); display: inline-block; }
+    .about-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 4vw, 56px); font-weight: 400; color: var(--white); line-height: 1.1; margin-bottom: 2rem; letter-spacing: -0.5px; }
+    .about-title em { font-style: italic; color: rgba(255,255,255,0.5); }
+    .about-body p { font-size: 16px; color: rgba(255,255,255,0.6); line-height: 1.85; font-weight: 300; margin-bottom: 1.25rem; }
+    .about-body p strong { color: var(--white); font-weight: 600; }
+    .about-cta { margin-top: 2.5rem; display: flex; gap: 12px; flex-wrap: wrap; }
+    .about-image { position: relative; }
+    .about-image-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; }
+    .about-image-grid img { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; }
+    .about-image-grid img:first-child { aspect-ratio: 2/1; grid-column: span 2; }
 
-    /* ── CTA BANNER ── */
-    .cta-section { background: var(--charcoal); padding: 7rem 2.5rem; text-align: center; position: relative; overflow: hidden; }
-    .cta-section::before { content: 'WPC'; position: absolute; font-family: 'Syne', sans-serif; font-size: 300px; font-weight: 800; color: rgba(255,255,255,0.03); left: 50%; top: 50%; transform: translate(-50%, -50%); white-space: nowrap; pointer-events: none; letter-spacing: -10px; }
-    .cta-inner { position: relative; z-index: 1; }
-    .cta-label { font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 1.25rem; }
-    .cta-title { font-family: 'Syne', sans-serif; font-size: clamp(40px, 6vw, 72px); color: var(--cream); line-height: 1.05; margin-bottom: 1rem; letter-spacing: -1.5px; font-weight: 800; }
-    .cta-title em { font-style: normal; color: var(--gold-light); }
-    .cta-sub { font-size: 16px; color: rgba(250,247,242,0.55); margin-bottom: 2.5rem; font-weight: 300; }
-    .cta-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-    .cta-actions .btn-gold { padding: 14px 32px; font-size: 14px; }
-    .cta-actions .btn-outline-light { background: transparent; border: 1px solid rgba(250,247,242,0.25); color: var(--cream); padding: 14px 32px; border-radius: 4px; font-size: 14px; font-weight: 500; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all 0.2s; }
-    .cta-actions .btn-outline-light:hover { border-color: var(--gold-light); color: var(--gold-light); }
-    .cta-badges { display: flex; gap: 2rem; justify-content: center; margin-top: 2.5rem; flex-wrap: wrap; }
-    .cta-badge { font-size: 12px; color: rgba(250,247,242,0.45); display: flex; align-items: center; gap: 6px; }
-    .cta-badge::before { content: '✓'; color: var(--gold); font-weight: 700; }
+    /* ── CTA FINAL ── */
+    .cta-section { background: var(--cream2); padding: 100px 2.5rem; position: relative; overflow: hidden; }
+    .cta-inner { max-width: 800px; margin: 0 auto; text-align: center; position: relative; z-index: 1; }
+    .cta-section::before { content: 'WPC'; font-family: 'Cormorant Garamond', serif; font-size: 400px; font-weight: 600; color: rgba(20,20,20,0.04); position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); pointer-events: none; white-space: nowrap; }
+    .cta-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 1.25rem; }
+    .cta-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(44px, 6vw, 80px); font-weight: 300; color: var(--ink); line-height: 1.05; margin-bottom: 1rem; letter-spacing: -1px; }
+    .cta-title strong { font-weight: 600; }
+    .cta-sub { font-size: 16px; color: var(--muted); margin-bottom: 2.5rem; font-weight: 300; max-width: 500px; margin-left: auto; margin-right: auto; }
+    .cta-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem; }
+    .cta-badges { display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; }
+    .cta-badge { font-size: 12px; color: var(--muted); display: flex; align-items: center; gap: 6px; font-weight: 400; }
+    .cta-badge::before { content: '—'; color: var(--gold); }
 
     /* ── FOOTER ── */
-    footer { background: var(--cream); border-top: 1px solid var(--border); padding: 2rem 2.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
-    .footer-logo { height: 36px; }
-    .footer-right { font-size: 12px; color: var(--muted); }
-    .footer-right a { color: var(--gold); text-decoration: none; }
+    footer { background: var(--ink); padding: 2rem 2.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-top: 1px solid rgba(255,255,255,0.06); }
+    .footer-logo { height: 34px; filter: brightness(0) invert(1); opacity: 0.7; }
+    footer span { font-size: 12px; color: rgba(255,255,255,0.35); }
+    footer a { color: var(--gold); text-decoration: none; }
 
     /* ── MODALS ── */
-    .modal-backdrop { position: fixed; inset: 0; background: rgba(28,28,28,0.7); backdrop-filter: blur(8px); z-index: 1000; display: none; align-items: flex-start; justify-content: center; overflow-y: auto; padding: 2rem 1rem; }
+    .modal-backdrop { position: fixed; inset: 0; background: rgba(20,20,20,0.75); backdrop-filter: blur(10px); z-index: 1000; display: none; align-items: flex-start; justify-content: center; overflow-y: auto; padding: 2rem 1rem; }
     .modal-backdrop.active { display: flex; }
-    .modal { background: var(--cream); border: 1px solid var(--border); border-radius: 10px; width: 100%; padding: 2rem; position: relative; box-shadow: 0 30px 80px rgba(0,0,0,0.2); animation: modalIn 0.3s ease; margin: auto; }
-    .modal-calendly { max-width: 960px; padding: 1rem; }
-    .modal-quote { max-width: 540px; }
-    @keyframes modalIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-    .modal-close { position: absolute; top: 1rem; right: 1rem; width: 34px; height: 34px; border-radius: 50%; background: var(--cream2); border: 1px solid var(--border); cursor: pointer; font-size: 16px; color: var(--muted); display: flex; align-items: center; justify-content: center; transition: all 0.2s; z-index: 10; }
-    .modal-close:hover { background: var(--charcoal); color: var(--cream); border-color: var(--charcoal); }
-    .modal-title { font-family: 'Syne', sans-serif; font-size: 32px; color: var(--charcoal); letter-spacing: -0.5px; margin-bottom: 0.25rem; font-weight: 700; }
-    .modal-sub { font-size: 13px; color: var(--muted); margin-bottom: 1.75rem; }
+    .modal { background: var(--cream); border-radius: 4px; width: 100%; padding: 2.5rem; position: relative; box-shadow: 0 40px 100px rgba(20,20,20,0.3); animation: modalIn 0.3s ease; margin: auto; }
+    .modal-calendly { max-width: 980px; padding: 1rem; }
+    .modal-quote { max-width: 560px; }
+    @keyframes modalIn { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+    .modal-close { position: absolute; top: 1.25rem; right: 1.25rem; width: 36px; height: 36px; border-radius: 50%; background: var(--cream2); border: 1px solid var(--border); cursor: pointer; font-size: 16px; color: var(--muted); display: flex; align-items: center; justify-content: center; transition: all 0.2s; z-index: 10; }
+    .modal-close:hover { background: var(--ink); color: var(--cream); border-color: var(--ink); }
+    .modal-title { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 500; color: var(--ink); letter-spacing: -0.5px; margin-bottom: 0.25rem; }
+    .modal-sub { font-size: 13px; color: var(--muted); margin-bottom: 2rem; font-weight: 300; }
     .calendly-inline-widget, #calendly-widget { min-height: 1100px; height: 1100px; width: 100%; }
 
-    /* ── QUOTE FORM ── */
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
-    .form-field { margin-bottom: 0.85rem; }
-    .form-field label { display: block; font-size: 12px; font-weight: 600; color: var(--charcoal2); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+    /* QUOTE FORM */
+    .form-section-title { font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin: 1.25rem 0 0.75rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .form-field { margin-bottom: 10px; }
+    .form-field label { display: block; font-size: 11px; font-weight: 600; color: var(--muted); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 1px; }
     .form-field label .req { color: var(--gold); }
-    .form-field input, .form-field select, .form-field textarea { width: 100%; padding: 11px 14px; background: var(--white); border: 1px solid var(--border); border-radius: 4px; font-size: 14px; font-family: 'DM Sans', sans-serif; color: var(--charcoal); transition: border-color 0.2s; }
-    .form-field input::placeholder, .form-field textarea::placeholder { color: rgba(28,28,28,0.3); }
-    .form-field input:focus, .form-field select:focus, .form-field textarea:focus { outline: none; border-color: var(--gold); background: var(--white); }
-    .form-field select option { background: var(--white); color: var(--charcoal); }
+    .form-field input, .form-field select, .form-field textarea { width: 100%; padding: 12px 14px; background: var(--white); border: 1px solid var(--border); border-radius: 2px; font-size: 14px; font-family: 'Outfit', sans-serif; color: var(--ink); transition: border-color 0.2s; -webkit-appearance: none; }
+    .form-field input::placeholder, .form-field textarea::placeholder { color: rgba(20,20,20,0.25); }
+    .form-field input:focus, .form-field select:focus, .form-field textarea:focus { outline: none; border-color: var(--gold); }
     .form-field textarea { resize: vertical; min-height: 80px; }
-    .form-field input[type="file"] { padding: 8px; cursor: pointer; background: var(--cream2); }
+    .form-field input[type="file"] { padding: 10px; background: var(--cream2); cursor: pointer; }
     .radio-group { display: flex; flex-direction: column; gap: 6px; }
-    .radio-option { display: flex; align-items: center; gap: 10px; padding: 11px 14px; background: var(--cream2); border: 1px solid var(--border); border-radius: 4px; cursor: pointer; transition: all 0.2s; }
+    .radio-option { display: flex; align-items: center; gap: 10px; padding: 12px 14px; background: var(--cream2); border: 1px solid var(--border); border-radius: 2px; cursor: pointer; transition: all 0.2s; }
     .radio-option:hover { border-color: var(--gold); }
-    .radio-option input[type="radio"] { accent-color: var(--gold); width: auto; cursor: pointer; }
-    .radio-option:has(input:checked) { border-color: var(--gold); background: rgba(184,147,58,0.06); }
-    .radio-label { font-size: 13px; color: var(--charcoal); }
+    .radio-option input[type="radio"] { accent-color: var(--gold); flex-shrink: 0; cursor: pointer; }
+    .radio-option:has(input:checked) { border-color: var(--gold); background: rgba(192,154,69,0.06); }
+    .radio-label { font-size: 13px; color: var(--ink); font-weight: 400; }
     .upload-field { display: none; }
     .upload-field.show { display: block; }
-    .form-submit { width: 100%; background: var(--charcoal); color: var(--cream); border: none; padding: 13px; border-radius: 4px; font-size: 14px; font-weight: 600; cursor: pointer; margin-top: 0.5rem; transition: all 0.2s; font-family: 'DM Sans', sans-serif; letter-spacing: 0.3px; }
-    .form-submit:hover { background: var(--charcoal2); }
+    .form-submit { width: 100%; background: var(--ink); color: var(--cream); border: none; padding: 15px; border-radius: 2px; font-size: 13px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer; margin-top: 1rem; transition: all 0.2s; font-family: 'Outfit', sans-serif; }
+    .form-submit:hover { background: var(--ink2); }
     .form-submit:disabled { background: var(--muted); cursor: not-allowed; }
     .form-note { font-size: 11px; color: var(--muted); text-align: center; margin-top: 0.75rem; }
-    .success-msg { text-align: center; padding: 2.5rem 1rem; }
-    .success-check { width: 60px; height: 60px; border-radius: 50%; background: var(--cream3); border: 1px solid var(--gold); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem; font-size: 24px; color: var(--gold); }
-    .success-msg h3 { font-family: 'Syne', sans-serif; font-size: 28px; color: var(--charcoal); letter-spacing: -0.5px; margin-bottom: 0.5rem; font-weight: 700; }
-    .success-msg p { font-size: 14px; color: var(--muted); line-height: 1.7; }
+    .success-msg { text-align: center; padding: 3rem 1rem; }
+    .success-icon { font-size: 36px; margin-bottom: 1rem; }
+    .success-msg h3 { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 500; color: var(--ink); margin-bottom: 0.5rem; }
+    .success-msg p { font-size: 14px; color: var(--muted); line-height: 1.7; font-weight: 300; }
 
     /* ── RESPONSIVE ── */
-    @media (max-width: 900px) {
-      .nav-links { display: none; }
-      .nav { padding: 1rem 1.25rem; }
-      .hero { grid-template-columns: 1fr; min-height: auto; }
-      .hero-left { padding: 3rem 1.25rem; }
-      .hero-right { grid-template-columns: 1fr 1fr; grid-template-rows: auto; min-height: 300px; }
-      .hero-right-cell:first-child { grid-row: span 1; }
-      .section { padding: 5rem 1.25rem; }
-      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-      .gallery-item.wide { grid-column: span 2; }
-      .process-layout { grid-template-columns: 1fr; gap: 3rem; }
-      .process-aside { position: static; }
-      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+    @media (max-width: 1024px) {
+      .gallery-grid { columns: 3; }
+      .process-steps { grid-template-columns: 1fr 1fr; }
+      .process-stats { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .nav { padding: 0 1.25rem; }
+      .nav-center { display: none; }
+      .hero { padding-bottom: 60px; }
+      .hero-content { padding: 0 1.25rem; }
+      .hero-stats { display: none; }
+      .gallery-grid { columns: 2; }
+      .gallery-section { padding-top: 60px; }
+      .gallery-header { padding: 0 1.25rem 40px; }
+      .process-section, .about-section, .cta-section { padding: 70px 1.25rem; }
+      .process-steps { grid-template-columns: 1fr; }
+      .process-stats { grid-template-columns: 1fr; }
+      .about-inner { grid-template-columns: 1fr; gap: 3rem; }
       .form-row { grid-template-columns: 1fr; }
       .modal-calendly { padding: 0.5rem; }
       .calendly-inline-widget, #calendly-widget { min-height: 900px; height: 900px; }
-      .hero-meta { gap: 1.5rem; }
-      .cta-section { padding: 5rem 1.25rem; }
+      .modal { padding: 1.5rem 1.25rem; }
     }
   </style>
 </head>
 <body>
 
-<!-- NAV -->
+<!-- ── NAV ── -->
 <header class="nav" id="nav">
   <img src="logo.png" alt="Wall Print Chicago" class="nav-logo"/>
-  <nav class="nav-links">
-    <a onclick="scrollToSection('gallery')">Gallery</a>
-    <a onclick="scrollToSection('process')">Process</a>
-    <a onclick="scrollToSection('about')">About</a>
+  <nav class="nav-center">
+    <a onclick="scrollTo('gallery')">Gallery</a>
+    <a onclick="scrollTo('process')">Process</a>
+    <a onclick="scrollTo('about')">About</a>
   </nav>
-  <div class="nav-ctas">
-    <button class="btn-outline" onclick="openModal('quote')">Get a quote</button>
-    <button class="btn-solid" onclick="openBookingModal()">Book a call</button>
+  <div class="nav-right">
+    <button class="btn-light" onclick="openModal('quote')" style="padding:10px 20px;font-size:12px;">Get a quote</button>
+    <button class="btn-dark" onclick="openBookingModal()" style="padding:10px 20px;font-size:12px;">Book a call</button>
   </div>
 </header>
 
-<!-- HERO -->
+<!-- ── HERO ── -->
 <section class="hero" id="home">
-  <div class="hero-left">
-    <p class="hero-eyebrow">Chicago's Wall Art Studio</p>
-    <h1 class="hero-h1">Your walls.<br/><em>Transformed.</em></h1>
-    <p class="hero-p">Custom wall printing and murals for gyms, restaurants, cafés, offices, and homes. Installed in hours. Loved for years.</p>
+  <div class="hero-bg">
+    <img src="Images/GymFrontView.JPG" alt="Wall Print Chicago — Gym Mural"/>
+  </div>
+  <div class="hero-content">
+    <p class="hero-tag">Chicago's Wall Art Studio</p>
+    <h1 class="hero-h1">
+      <em>Transform</em>
+      <strong>Any Wall.</strong>
+      <em>Any Space.</em>
+    </h1>
+    <p class="hero-p">Custom wall printing and murals for gyms, restaurants, cafés, offices, and homes — designed for your brand, installed in hours.</p>
     <div class="hero-actions">
-      <button class="btn-solid" onclick="scrollToSection('gallery')">See our work</button>
-      <button class="btn-outline" onclick="openBookingModal()">Book a free call</button>
-    </div>
-    <div class="hero-meta">
-      <div class="hero-meta-item">
-        <div class="hero-meta-num">4hrs</div>
-        <div class="hero-meta-label">Avg. install time</div>
-      </div>
-      <div class="hero-meta-item">
-        <div class="hero-meta-num">100%</div>
-        <div class="hero-meta-label">Custom designed</div>
-      </div>
-      <div class="hero-meta-item">
-        <div class="hero-meta-num">Free</div>
-        <div class="hero-meta-label">Consultation</div>
-      </div>
+      <button class="btn-white" onclick="scrollTo('gallery')">View our work</button>
+      <button class="btn-white-outline" onclick="openBookingModal()">Book a free call</button>
     </div>
   </div>
-  <div class="hero-right">
-    <div class="hero-right-cell"><img class="hero-right-img" src="Images/GymFrontView.JPG" alt="Gym wall mural"/></div>
-    <div class="hero-right-cell"><img class="hero-right-img" src="Images/CafeFrontView.jpg" alt="Café wall print"/></div>
-    <div class="hero-right-cell"><img class="hero-right-img" src="Images/SkylineFrontView.JPG" alt="Skyline mural"/></div>
-    <div class="hero-right-cell"><img class="hero-right-img" src="Images/KidsroomFrontView.JPG" alt="Kids room mural"/></div>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="hero-stat-num">4hrs</div>
+      <div class="hero-stat-label">Installation</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">100%</div>
+      <div class="hero-stat-label">Custom</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">Free</div>
+      <div class="hero-stat-label">Consultation</div>
+    </div>
   </div>
 </section>
 
-<!-- GALLERY -->
-<section class="section gallery-section" id="gallery">
-  <div class="section-inner">
-    <div class="gallery-header">
+<!-- ── TICKER ── -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <span class="ticker-item"><span>✦</span> Gyms & Fitness Studios</span>
+    <span class="ticker-item"><span>✦</span> Restaurants & Cafés</span>
+    <span class="ticker-item"><span>✦</span> Offices & Commercial</span>
+    <span class="ticker-item"><span>✦</span> Schools & Institutions</span>
+    <span class="ticker-item"><span>✦</span> Homes & Residences</span>
+    <span class="ticker-item"><span>✦</span> Wellness & Yoga Studios</span>
+    <span class="ticker-item"><span>✦</span> Pools & Outdoor Spaces</span>
+    <span class="ticker-item"><span>✦</span> Gyms & Fitness Studios</span>
+    <span class="ticker-item"><span>✦</span> Restaurants & Cafés</span>
+    <span class="ticker-item"><span>✦</span> Offices & Commercial</span>
+    <span class="ticker-item"><span>✦</span> Schools & Institutions</span>
+    <span class="ticker-item"><span>✦</span> Homes & Residences</span>
+    <span class="ticker-item"><span>✦</span> Wellness & Yoga Studios</span>
+    <span class="ticker-item"><span>✦</span> Pools & Outdoor Spaces</span>
+  </div>
+</div>
+
+<!-- ── GALLERY ── -->
+<section class="gallery-section" id="gallery">
+  <div class="gallery-header">
+    <div class="gallery-header-left">
+      <p class="eyebrow">Our work</p>
+      <h2 class="gallery-title">The Gallery</h2>
+    </div>
+    <div class="gallery-filters">
+      <button class="filter-btn active" onclick="filterGallery('all',this)">All</button>
+      <button class="filter-btn" onclick="filterGallery('fitness',this)">Fitness</button>
+      <button class="filter-btn" onclick="filterGallery('food',this)">Food & Drink</button>
+      <button class="filter-btn" onclick="filterGallery('commercial',this)">Commercial</button>
+      <button class="filter-btn" onclick="filterGallery('residential',this)">Residential</button>
+      <button class="filter-btn" onclick="filterGallery('wellness',this)">Wellness</button>
+    </div>
+  </div>
+  <div class="gallery-grid" id="gallery-grid">
+    <div class="gallery-item" data-cat="fitness"><img src="Images/ArnoldFrontView.png" alt="Gym mural"/><div class="gallery-item-info"><div class="gallery-item-cat">Fitness</div><div class="gallery-item-name">Motivational Gym Mural</div></div></div>
+    <div class="gallery-item" data-cat="food"><img src="Images/CafeFrontView.jpg" alt="Café"/><div class="gallery-item-info"><div class="gallery-item-cat">Food & Drink</div><div class="gallery-item-name">Café Feature Wall</div></div></div>
+    <div class="gallery-item" data-cat="commercial"><img src="Images/ClassroomFrontView.JPG" alt="Classroom"/><div class="gallery-item-info"><div class="gallery-item-cat">Commercial</div><div class="gallery-item-name">School Classroom</div></div></div>
+    <div class="gallery-item" data-cat="fitness"><img src="Images/GymFrontView.JPG" alt="Gym"/><div class="gallery-item-info"><div class="gallery-item-cat">Fitness</div><div class="gallery-item-name">Gym Feature Wall</div></div></div>
+    <div class="gallery-item" data-cat="fitness"><img src="Images/ArnoldSideView.png" alt="Arnold side"/><div class="gallery-item-info"><div class="gallery-item-cat">Fitness</div><div class="gallery-item-name">Athlete Portrait</div></div></div>
+    <div class="gallery-item" data-cat="food"><img src="Images/CafeSideView.jpg" alt="Café side"/><div class="gallery-item-info"><div class="gallery-item-cat">Food & Drink</div><div class="gallery-item-name">Coffee Shop Branding</div></div></div>
+    <div class="gallery-item" data-cat="commercial"><img src="Images/ClassroomSideView.JPG" alt="Classroom side"/><div class="gallery-item-info"><div class="gallery-item-cat">Commercial</div><div class="gallery-item-name">Educational Space</div></div></div>
+    <div class="gallery-item" data-cat="fitness"><img src="Images/GymSideView.JPG" alt="Gym side"/><div class="gallery-item-info"><div class="gallery-item-cat">Fitness</div><div class="gallery-item-name">Training Zone</div></div></div>
+    <div class="gallery-item" data-cat="residential"><img src="Images/KidsroomFrontView.JPG" alt="Kids room"/><div class="gallery-item-info"><div class="gallery-item-cat">Residential</div><div class="gallery-item-name">Kids Room Jungle</div></div></div>
+    <div class="gallery-item" data-cat="food"><img src="Images/PizzaCornerFrontView.png" alt="Pizza"/><div class="gallery-item-info"><div class="gallery-item-cat">Food & Drink</div><div class="gallery-item-name">Italian Restaurant</div></div></div>
+    <div class="gallery-item" data-cat="residential"><img src="Images/KidsroomSideview.JPG" alt="Kids room side"/><div class="gallery-item-info"><div class="gallery-item-cat">Residential</div><div class="gallery-item-name">Playroom Mural</div></div></div>
+    <div class="gallery-item" data-cat="food"><img src="Images/PizzaCornerSideView.png" alt="Pizza side"/><div class="gallery-item-info"><div class="gallery-item-cat">Food & Drink</div><div class="gallery-item-name">Restaurant Side Wall</div></div></div>
+    <div class="gallery-item" data-cat="residential"><img src="Images/PoolFrontView.jpeg" alt="Pool"/><div class="gallery-item-info"><div class="gallery-item-cat">Residential</div><div class="gallery-item-name">Pool Area Mural</div></div></div>
+    <div class="gallery-item" data-cat="commercial"><img src="Images/SkylineFrontView.JPG" alt="Skyline"/><div class="gallery-item-info"><div class="gallery-item-cat">Commercial</div><div class="gallery-item-name">City Skyline Mural</div></div></div>
+    <div class="gallery-item" data-cat="residential"><img src="Images/PoolSideView.jpeg" alt="Pool side"/><div class="gallery-item-info"><div class="gallery-item-cat">Residential</div><div class="gallery-item-name">Outdoor Wall Art</div></div></div>
+    <div class="gallery-item" data-cat="commercial"><img src="Images/SkylineSideView.JPG" alt="Skyline side"/><div class="gallery-item-info"><div class="gallery-item-cat">Commercial</div><div class="gallery-item-name">Office Feature Wall</div></div></div>
+    <div class="gallery-item" data-cat="food"><img src="Images/SushibarFrontView.png" alt="Sushi bar"/><div class="gallery-item-info"><div class="gallery-item-cat">Food & Drink</div><div class="gallery-item-name">Sushi Bar Japanese Art</div></div></div>
+    <div class="gallery-item" data-cat="food"><img src="Images/SushibarSideView.png" alt="Sushi side"/><div class="gallery-item-info"><div class="gallery-item-cat">Food & Drink</div><div class="gallery-item-name">Japanese Wave Mural</div></div></div>
+    <div class="gallery-item" data-cat="wellness"><img src="Images/YogaStudioFrontView.png" alt="Yoga studio"/><div class="gallery-item-info"><div class="gallery-item-cat">Wellness</div><div class="gallery-item-name">Yoga Studio Mandala</div></div></div>
+    <div class="gallery-item" data-cat="wellness"><img src="Images/YogaStudioSideView.png" alt="Yoga side"/><div class="gallery-item-info"><div class="gallery-item-cat">Wellness</div><div class="gallery-item-name">Zen Studio Wall</div></div></div>
+  </div>
+  <div class="gallery-cta">
+    <p>Every project is custom designed for your space. No templates, no compromises.</p>
+    <button class="btn-dark" onclick="openModal('quote')">Get a quote for your space</button>
+  </div>
+</section>
+
+<!-- ── PROCESS ── -->
+<section class="process-section" id="process">
+  <div class="process-inner">
+    <div class="process-top">
       <div>
-        <p class="section-label">Our work</p>
-        <h2 class="section-title">The Gallery</h2>
-        <p class="section-sub" style="margin-top:0.5rem;">Every project is unique. Here's what we've been printing.</p>
+        <p style="font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:0.75rem;display:flex;align-items:center;gap:10px;"><span style="display:inline-block;width:24px;height:1px;background:var(--gold);"></span>How it works</p>
+        <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(36px,4vw,56px);font-weight:400;color:var(--ink);line-height:1;letter-spacing:-0.5px;">From idea<br/>to wall.</h2>
       </div>
-      <div class="gallery-filters">
-        <button class="filter-btn active" onclick="filterGallery('all', this)">All</button>
-        <button class="filter-btn" onclick="filterGallery('fitness', this)">Fitness</button>
-        <button class="filter-btn" onclick="filterGallery('food', this)">Food & Drink</button>
-        <button class="filter-btn" onclick="filterGallery('commercial', this)">Commercial</button>
-        <button class="filter-btn" onclick="filterGallery('residential', this)">Residential</button>
-        <button class="filter-btn" onclick="filterGallery('wellness', this)">Wellness</button>
+      <p style="font-size:15px;color:var(--muted);max-width:400px;font-weight:300;line-height:1.75;">A simple, transparent process — designed so you always know exactly what's happening next.</p>
+    </div>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="process-step-num">01</div>
+        <div class="process-step-arrow">↗</div>
+        <h3 class="process-step-title">Free consultation</h3>
+        <p class="process-step-text">Book a 30-minute call. Tell us about your space, vision, and budget. We'll bring ideas you haven't thought of yet.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-step-num">02</div>
+        <div class="process-step-arrow">↗</div>
+        <h3 class="process-step-title">Design & preview</h3>
+        <p class="process-step-text">We create a custom design and show you a digital mockup on your actual wall. Unlimited revisions until it's perfect.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-step-num">03</div>
+        <div class="process-step-arrow">↗</div>
+        <h3 class="process-step-title">Precision printing</h3>
+        <p class="process-step-text">Direct-to-wall technology. High-resolution, vibrant colour, built to last. No mess, zero disruption to your business.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-step-num">04</div>
+        <div class="process-step-arrow">↗</div>
+        <h3 class="process-step-title">Installed & done</h3>
+        <p class="process-step-text">We clean up completely. You walk into a transformed space, ready to impress from day one.</p>
       </div>
     </div>
-    <div class="gallery-grid" id="gallery-grid">
-      <div class="gallery-item wide" data-cat="fitness">
-        <img src="Images/ArnoldFrontView.png" alt="Gym mural"/>
-        <div class="gallery-item-overlay"><div class="gallery-item-cat">Fitness</div><div class="gallery-item-title">Motivational Gym Mural</div></div>
+    <div class="process-stats">
+      <div class="process-stat">
+        <div class="process-stat-num">4hrs</div>
+        <div class="process-stat-label">Average install time</div>
       </div>
-      <div class="gallery-item" data-cat="fitness">
-        <img src="Images/ArnoldSideView.png" alt="Gym side view"/>
-        <div class="gallery-item-overlay"><div class="gallery-item-cat">Fitness</div><div class="gallery-item-title">Athlete Portrait</div></div>
+      <div class="process-stat">
+        <div class="process-stat-num">48hrs</div>
+        <div class="process-stat-label">Approval to installation</div>
       </div>
-      <div class="gallery-item" data-cat="fitness">
-        <img src="Images/GymFrontView.JPG" alt="Gym front view"/>
-        <div class="gallery-item-overlay"><div class="gallery-item-cat">Fitness</div><div class="gallery-item-title">Gym Feature Wall</div></div>
-      </div>
-      <div class="gallery-item" data-cat="food">
-        <img src="Images/CafeFrontView.jpg" alt="Café front view"/>
-        <div class="gallery-item-overlay"><div class="gallery-item-cat">Food & Drink</div><div class="gallery-item-title">Café Branding Wall</div></div>
-      </div>
-      <div class="gallery-item wide" data-cat="food">
-        <img src="Images/CafeSideView.jpg" alt="Café side view"/>
-        <div class="gallery-item-overlay"><div class="gallery-item-cat">Food & Drink</div><div class="gallery-item-title">Coffee Shop Feature Wall</div></div>
-      </div>
-      <div class="gallery-item" data-cat="fitness">
-        <img src="Images/GymSideView.JPG" alt="Gym side view"/>
-        <div class="gallery-item-overlay"><div class="gallery-item-cat">Fitness</div><div class="gallery-item-title">Training Zone Mural</div></div>
-      </div>
-      <div class="gallery-item" data-cat="residential">
-        <img src="Images/KidsroomFrontView.JPG" alt="Kids room"/>
-        <div class="gallery-item-overlay"><div class="gallery-item-cat">Residential</div><div class="gallery-item-title">Kids Room Jungle</div></div>
-      </div>
-      <div class="gallery-item" data-cat="residential">
-        <img src="Images/KidsroomSideview.JPG" alt="Kids room side"/>
-        <div class="gallery-item-overlay"><div class="gallery-item-cat">Residential</div><div class="gallery-item-title">Playroom Mural</div></div>
-      </div>
-      <div class="gallery-item wide" data-cat="food">
-        <img src="Images/PizzaCornerFrontView.png" alt="Pizza restaurant"/>
-        <div class="gallery-item-overlay"><div class="gallery-item-cat">Food & Drink</div><div class="gallery-item-title">Italian Restaurant Mural</div></div>
-      </div>
-      <div class="gallery-item" data-cat="food">
-        <img src="Images/PizzaCornerSideView.png" alt="Pizza side"/>
-        <div class="gallery-item-overlay"><div class="gallery-item-cat">Food & Drink</div><div class="gallery-item-title">Restaurant Side Wall</div></div>
-      </div>
-      <div class="gallery-item" data-cat="residential">
-        <img src="Images/PoolFrontView.jpeg" alt="Pool area"/>
-        <div class="gallery-item-overlay"><div class="gallery-item-cat">Residential</div><div class="gallery-item-title">Pool Area Mural</div></div>
-      </div>
-      <div class="gallery-item" data-cat="residential">
-        <img src="Images/PoolSideView.jpeg" alt="Pool side"/>
-        <div class="gallery-item-overlay"><div class="gallery-item-cat">Residential</div><div class="gallery-item-title">Outdoor Wall Art</div></div>
-      </div>
-      <div class="gallery-item" data-cat="commercial">
-        <img src="Images/ClassroomFrontView.JPG" alt="Classroom"/>
-        <div class="gallery-item-overlay"><div class="gallery-item-cat">Commercial</div><div class="gallery-item-title">School Classroom Wall</div></div>
-      </div>
-      <div class="gallery-item wide" data-cat="commercial">
-        <img src="Images/SkylineFrontView.JPG" alt="Skyline mural"/>
-        <div class="gallery-item-overlay"><div class="gallery-item-cat">Commercial</div><div class="gallery-item-title">City Skyline Mural</div></div>
-      </div>
-      <div class="gallery-item" data-cat="commercial">
-        <img src="Images/SkylineSideView.JPG" alt="Skyline side"/>
-        <div class="gallery-item-overlay"><div class="gallery-item-cat">Commercial</div><div class="gallery-item-title">Office Feature Wall</div></div>
-      </div>
-      <div class="gallery-item" data-cat="food">
-        <img src="Images/SushibarFrontView.png" alt="Sushi bar"/>
-        <div class="gallery-item-overlay"><div class="gallery-item-cat">Food & Drink</div><div class="gallery-item-title">Sushi Bar Japanese Art</div></div>
-      </div>
-      <div class="gallery-item" data-cat="food">
-        <img src="Images/SushibarSideView.png" alt="Sushi side"/>
-        <div class="gallery-item-overlay"><div class="gallery-item-cat">Food & Drink</div><div class="gallery-item-title">Japanese Wave Mural</div></div>
-      </div>
-      <div class="gallery-item" data-cat="commercial">
-        <img src="Images/ClassroomSideView.JPG" alt="Classroom side"/>
-        <div class="gallery-item-overlay"><div class="gallery-item-cat">Commercial</div><div class="gallery-item-title">Educational Wall Design</div></div>
-      </div>
-      <div class="gallery-item" data-cat="wellness">
-        <img src="Images/YogaStudioFrontView.png" alt="Yoga studio"/>
-        <div class="gallery-item-overlay"><div class="gallery-item-cat">Wellness</div><div class="gallery-item-title">Yoga Studio Mandala</div></div>
-      </div>
-      <div class="gallery-item" data-cat="wellness">
-        <img src="Images/YogaStudioSideView.png" alt="Yoga side"/>
-        <div class="gallery-item-overlay"><div class="gallery-item-cat">Wellness</div><div class="gallery-item-title">Zen Studio Wall</div></div>
+      <div class="process-stat">
+        <div class="process-stat-num">Free</div>
+        <div class="process-stat-label">Design consultation</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PROCESS -->
-<section class="section process-section" id="process">
-  <div class="section-inner">
-    <p class="section-label">How it works</p>
-    <h2 class="section-title">From idea to wall</h2>
-    <div class="process-layout">
-      <div class="process-steps">
-        <div class="process-step">
-          <div class="process-step-num">01</div>
-          <div>
-            <h3 class="process-step-title">Free consultation</h3>
-            <p class="process-step-text">Book a 30-minute call. Tell us about your space, your vision, and your budget. We'll ask the right questions and bring ideas you haven't thought of yet.</p>
-          </div>
-        </div>
-        <div class="process-step">
-          <div class="process-step-num">02</div>
-          <div>
-            <h3 class="process-step-title">Design & preview</h3>
-            <p class="process-step-text">Our team creates a custom design and shows you a digital mockup on your actual wall. Unlimited revisions until it's exactly right.</p>
-          </div>
-        </div>
-        <div class="process-step">
-          <div class="process-step-num">03</div>
-          <div>
-            <h3 class="process-step-title">Precision printing</h3>
-            <p class="process-step-text">State-of-the-art direct-to-wall technology. High-resolution, vibrant colour, built to last. No mess, no disruption to your business.</p>
-          </div>
-        </div>
-        <div class="process-step">
-          <div class="process-step-num">04</div>
-          <div>
-            <h3 class="process-step-title">Installed & done</h3>
-            <p class="process-step-text">We clean up completely. You walk in to a transformed space, ready to impress customers, clients, or guests from day one.</p>
-          </div>
-        </div>
-      </div>
-      <div class="process-aside">
-        <div class="process-card">
-          <div class="process-card-num">4 <span class="process-card-unit">hrs</span></div>
-          <div class="process-card-label">Average installation time</div>
-        </div>
-        <div class="process-card highlight">
-          <div class="process-card-num" style="color:var(--gold);">48 <span class="process-card-unit" style="color:var(--cream);font-size:16px;">hrs</span></div>
-          <div class="process-card-label">From approval to installation</div>
-        </div>
-        <div class="process-card">
-          <div class="process-card-num">0</div>
-          <div class="process-card-label">Business disruption during installation</div>
-        </div>
-        <div class="process-quote">
-          <p>"We don't just print walls. We create the atmosphere that keeps your customers coming back."</p>
-          <span>— Wall Print Chicago</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section class="section about-section" id="about">
-  <div class="section-inner">
-    <div class="about-grid">
-      <div class="about-text">
-        <p class="section-label">About us</p>
-        <h2 class="section-title" style="margin-bottom:2rem;">We print walls.<br/>You own the room.</h2>
+<!-- ── ABOUT ── -->
+<section class="about-section" id="about">
+  <div class="about-inner">
+    <div>
+      <p class="about-eyebrow">About us</p>
+      <h2 class="about-title">We print walls.<br/><em>You own the room.</em></h2>
+      <div class="about-body">
         <p>Wall Print Chicago is the city's specialist in <strong>custom direct-to-wall printing and murals.</strong> We work with gym owners, restaurant operators, café owners, schools, offices, and homeowners to create spaces that stop people in their tracks.</p>
-        <p>Every project starts with a conversation and ends with a wall your customers can't stop photographing. <strong>No templates. No compromises.</strong> Every design is built for your space and your brand — from concept to installation.</p>
-        <p>Based in <strong>Chicago</strong>, serving the city and all suburbs. Fast, professional, and obsessive about every detail.</p>
-        <div class="about-cta">
-          <button class="btn-solid" onclick="openBookingModal()">Book a free call</button>
-          <button class="btn-outline" onclick="openModal('quote')">Get a quote</button>
-        </div>
+        <p>Every project starts with a conversation and ends with a wall your customers can't stop photographing. <strong>No templates. No compromises.</strong> Every design is built specifically for your space and your brand.</p>
+        <p>Based in <strong>Chicago</strong>, serving the entire city and all suburbs.</p>
       </div>
-      <div class="about-visual">
-        <div class="about-stat">
-          <div class="about-stat-num">48h</div>
-          <div class="about-stat-label">From approval to installation</div>
-        </div>
-        <div class="about-stat">
-          <div class="about-stat-num">Any</div>
-          <div class="about-stat-label">Surface. Any size. Any design.</div>
-        </div>
-        <div class="about-stat">
-          <div class="about-stat-num">Free</div>
-          <div class="about-stat-label">Consultation & design preview</div>
-        </div>
-        <div class="about-stat">
-          <div class="about-stat-num">📍</div>
-          <div class="about-stat-label">Chicago & all suburbs</div>
-        </div>
+      <div class="about-cta">
+        <button class="btn-white" onclick="openBookingModal()">Book a free call</button>
+        <button class="btn-white-outline" onclick="openModal('quote')">Get a quote</button>
+      </div>
+    </div>
+    <div class="about-image">
+      <div class="about-image-grid">
+        <img src="Images/SkylineFrontView.JPG" alt="Skyline mural"/>
+        <img src="Images/YogaStudioFrontView.png" alt="Yoga studio"/>
+        <img src="Images/PizzaCornerFrontView.png" alt="Pizza restaurant"/>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CTA -->
+<!-- ── CTA ── -->
 <section class="cta-section">
-  <div class="section-inner cta-inner">
-    <p class="cta-label">Ready to start?</p>
-    <h2 class="cta-title">Transform your<br/><em>space today.</em></h2>
+  <div class="cta-inner">
+    <p class="cta-eyebrow">Ready to start?</p>
+    <h2 class="cta-title">Transform your<br/><strong>space today.</strong></h2>
     <p class="cta-sub">Book a free 30-minute call or get an instant quote. No commitment required.</p>
     <div class="cta-actions">
-      <button class="btn-gold" onclick="openBookingModal()">Book a free call →</button>
-      <button class="btn-outline-light" onclick="openModal('quote')">Get a quote ✦</button>
+      <button class="btn-dark" onclick="openBookingModal()">Book a free call →</button>
+      <button class="btn-light" onclick="openModal('quote')">Get a quote</button>
     </div>
     <div class="cta-badges">
       <span class="cta-badge">Free consultation</span>
@@ -498,10 +428,10 @@
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- ── FOOTER ── -->
 <footer>
   <img src="logo.png" alt="Wall Print Chicago" class="footer-logo"/>
-  <div class="footer-right">© 2026 Wall Print Chicago · <a href="mailto:wallprintchicago@gmail.com">wallprintchicago@gmail.com</a></div>
+  <span>© 2026 Wall Print Chicago · <a href="mailto:wallprintchicago@gmail.com">wallprintchicago@gmail.com</a></span>
 </footer>
 
 <!-- BOOK A CALL MODAL -->
@@ -518,8 +448,9 @@
     <button class="modal-close" onclick="closeModal('quote')">✕</button>
     <div id="form-content-quote">
       <h3 class="modal-title">Get a quote</h3>
-      <p class="modal-sub">Share a few details and we'll send a personalised quote within 24 hours.</p>
+      <p class="modal-sub">Tell us about your project and we'll send a personalised quote within 24 hours.</p>
       <form id="quoteForm" onsubmit="handleSubmit(event)">
+        <p class="form-section-title">Your details</p>
         <div class="form-field">
           <label>Full name <span class="req">*</span></label>
           <input type="text" name="name" required placeholder="Your name"/>
@@ -534,10 +465,11 @@
             <input type="tel" name="phone" placeholder="(312) 000-0000"/>
           </div>
         </div>
+        <p class="form-section-title">Project details</p>
         <div class="form-row">
           <div class="form-field">
             <label>Location <span class="req">*</span></label>
-            <input type="text" name="location" required placeholder="City or ZIP"/>
+            <input type="text" name="location" required placeholder="City or ZIP code"/>
           </div>
           <div class="form-field">
             <label>Space type <span class="req">*</span></label>
@@ -557,7 +489,7 @@
           </div>
         </div>
         <div class="form-field">
-          <label>Wall size</label>
+          <label>Approximate wall size</label>
           <select name="size">
             <option value="">Select one</option>
             <option>Small (under 50 sq ft)</option>
@@ -579,7 +511,7 @@
             </label>
             <label class="radio-option">
               <input type="radio" name="designChoice" value="Not sure yet" required onchange="toggleUpload(false)"/>
-              <span class="radio-label">Not sure yet</span>
+              <span class="radio-label">Not sure yet — I'd love to explore options</span>
             </label>
           </div>
         </div>
@@ -589,10 +521,10 @@
         </div>
         <div class="form-field">
           <label>Tell us about your project</label>
-          <textarea name="notes" placeholder="Any details, ideas, or questions..."></textarea>
+          <textarea name="notes" placeholder="Any details, ideas, or inspiration..."></textarea>
         </div>
-        <button type="submit" class="form-submit" id="submitBtn">Send my quote request →</button>
-        <p class="form-note">We'll get back within 24 hours. No spam, ever.</p>
+        <button type="submit" class="form-submit" id="submitBtn">Send quote request</button>
+        <p class="form-note">We respond within 24 hours. No spam, ever.</p>
       </form>
     </div>
   </div>
@@ -601,17 +533,21 @@
 <script>
   const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbznrgZkfIfwhorjnEduBsFqJyynLCC3w6X4RhShRrHRm5nKF6zcL3S_3n5c0mI3MCFyBw/exec";
 
-  function scrollToSection(id) {
-    document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
-  }
+  function scrollTo(id) { document.getElementById(id).scrollIntoView({ behavior: 'smooth' }); }
 
+  // Nav scroll effect
+  window.addEventListener('scroll', () => {
+    document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // Calendly
   let calendlyLoaded = false;
   function openBookingModal() {
     document.getElementById('modal-book').classList.add('active');
     document.body.style.overflow = 'hidden';
     if (!calendlyLoaded && typeof Calendly !== 'undefined') {
       Calendly.initInlineWidget({
-        url: 'https://calendly.com/wallprintchicago/30min?primary_color=b8933a&hide_gdpr_banner=1',
+        url: 'https://calendly.com/wallprintchicago/30min?primary_color=c09a45&hide_gdpr_banner=1',
         parentElement: document.getElementById('calendly-widget')
       });
       calendlyLoaded = true;
@@ -622,6 +558,7 @@
     document.body.style.overflow = '';
   }
 
+  // Quote modal
   function openModal(type) {
     document.getElementById('modal-' + type).classList.add('active');
     document.body.style.overflow = 'hidden';
@@ -630,8 +567,8 @@
     document.getElementById('modal-' + type).classList.remove('active');
     document.body.style.overflow = '';
     setTimeout(() => {
-      const orig = document.getElementById('original-form-quote');
-      if (orig) document.getElementById('form-content-quote').innerHTML = orig.innerHTML;
+      const o = document.getElementById('orig-quote');
+      if (o) document.getElementById('form-content-quote').innerHTML = o.innerHTML;
     }, 300);
   }
 
@@ -656,27 +593,27 @@
     const fd = new FormData(e.target);
     const data = {
       type: 'Quote', timestamp: new Date().toLocaleString(),
-      name: fd.get('name') || '', phone: fd.get('phone') || '',
-      email: fd.get('email') || '', location: fd.get('location') || '',
-      space: fd.get('space') || '', size: fd.get('size') || '',
-      message: fd.get('notes') || '', designChoice: fd.get('designChoice') || ''
+      name: fd.get('name')||'', phone: fd.get('phone')||'',
+      email: fd.get('email')||'', location: fd.get('location')||'',
+      space: fd.get('space')||'', size: fd.get('size')||'',
+      message: fd.get('notes')||'', designChoice: fd.get('designChoice')||''
     };
     const fi = document.getElementById('designFile');
     if (fi && fi.files[0]) {
-      try { const f = fi.files[0]; data.fileName = f.name; data.fileType = f.type; data.fileData = await fileToBase64(f); }
+      try { const f=fi.files[0]; data.fileName=f.name; data.fileType=f.type; data.fileData=await fileToBase64(f); }
       catch(err) { console.error(err); }
     }
-    try {
-      await fetch(GOOGLE_SCRIPT_URL, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
-    } catch(err) { console.error(err); }
+    try { await fetch(GOOGLE_SCRIPT_URL, { method:'POST', mode:'no-cors', headers:{'Content-Type':'application/json'}, body:JSON.stringify(data) }); }
+    catch(err) { console.error(err); }
     document.getElementById('form-content-quote').innerHTML = `
       <div class="success-msg">
-        <div class="success-check">✓</div>
+        <div class="success-icon">✦</div>
         <h3>Quote requested!</h3>
-        <p>We've received your details and will send a personalised quote within 24 hours.</p>
+        <p>We've received your details and will send a personalised quote within 24 hours. We look forward to transforming your space.</p>
       </div>`;
   }
 
+  // Gallery filter
   function filterGallery(cat, btn) {
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
@@ -685,20 +622,15 @@
     });
   }
 
-  window.addEventListener('scroll', () => {
-    const nav = document.getElementById('nav');
-    nav.style.background = window.scrollY > 60
-      ? 'rgba(250,247,242,0.98)'
-      : 'rgba(250,247,242,0.92)';
-  });
-
+  // Save original form
   document.addEventListener('DOMContentLoaded', () => {
-    const orig = document.createElement('div');
-    orig.id = 'original-form-quote'; orig.style.display = 'none';
-    orig.innerHTML = document.getElementById('form-content-quote').innerHTML;
-    document.body.appendChild(orig);
+    const o = document.createElement('div');
+    o.id = 'orig-quote'; o.style.display = 'none';
+    o.innerHTML = document.getElementById('form-content-quote').innerHTML;
+    document.body.appendChild(o);
   });
 
+  // ESC key
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape') { closeBookingModal(); closeModal('quote'); }
   });
