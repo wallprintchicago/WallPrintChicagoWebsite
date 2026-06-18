@@ -226,9 +226,9 @@
 <header class="nav" id="nav">
   <img src="logo.png" alt="Wall Print Chicago" class="nav-logo"/>
   <nav class="nav-center">
-    <a onclick="scrollTo('gallery')">Gallery</a>
-    <a onclick="scrollTo('process')">Process</a>
-    <a onclick="scrollTo('about')">About</a>
+    <a onclick="goToSection('gallery')">Gallery</a>
+    <a onclick="goToSection('process')">Process</a>
+    <a onclick="goToSection('about')">About</a>
   </nav>
   <div class="nav-right">
     <button class="btn-light" onclick="openModal('quote')" style="padding:10px 20px;font-size:12px;">Get a quote</button>
@@ -250,7 +250,7 @@
     </h1>
     <p class="hero-p">Custom wall printing and murals for gyms, restaurants, cafés, offices, and homes — designed for your brand, installed in hours.</p>
     <div class="hero-actions">
-      <button class="btn-white" onclick="scrollTo('gallery')">View our work</button>
+      <button class="btn-white" onclick="goToSection('gallery')">View our work</button>
       <button class="btn-white-outline" onclick="openBookingModal()">Book a free call</button>
     </div>
   </div>
@@ -541,7 +541,7 @@
 <script>
   const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbznrgZkfIfwhorjnEduBsFqJyynLCC3w6X4RhShRrHRm5nKF6zcL3S_3n5c0mI3MCFyBw/exec";
 
-  function scrollTo(id) { document.getElementById(id).scrollIntoView({ behavior: 'smooth' }); }
+  function goToSection(id) { document.getElementById(id).scrollIntoView({ behavior: 'smooth' }); }
 
   // Nav scroll effect
   window.addEventListener('scroll', () => {
